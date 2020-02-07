@@ -1,0 +1,33 @@
+// body {
+//     margin: 0;
+//     height: 100vh;
+//     width: 100vw;
+//     max-height: 100vh;
+//     max-width: 100vw;
+// }
+body, html {
+    height: 100%;
+  }
+
+div.layout {
+    // width: 100vw;
+    // height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 2.5fr;
+    grid-template-rows: 100vh;
+}
+main {
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+div.carousel {
+    height: 70%;
+    width: 70%;
+    // img {
+    //     height: 90vh;
+    // }
+}
