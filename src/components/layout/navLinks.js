@@ -13,7 +13,12 @@ const NavLinks = props => {
 
   return (
     <div class="nav-links">
-      <ul>{links}</ul>
+      <ul class="project-links">
+        {links}
+      </ul>
+      <ul class="other-links">
+        <li><Link to={"/cv"}>CV</Link></li>
+      </ul>
     </div>
   )
 }
