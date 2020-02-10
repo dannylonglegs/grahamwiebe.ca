@@ -14,7 +14,7 @@ class BlogIndex extends React.Component {
     const siteTitle = data.site.siteMetadata.title
     const projects = data.allContentfulProject.edges
     const cvData = data.allContentfulCvCvRichTextNode.nodes[0].cv
-    console.log(cvData)
+
     return (
       <Layout location={this.props.location} title={siteTitle} projects={projects}>
         <SEO title="All posts" />

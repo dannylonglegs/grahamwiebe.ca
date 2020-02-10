@@ -16,7 +16,6 @@ class ProjectTemplate extends React.Component {
         <SEO
           title={project.projectTitle}
         />
-        {/* <h1>{project.projectTitle}</h1> */}
         <ContentView class="content-view" project={project}/>
       </Layout>
     )
