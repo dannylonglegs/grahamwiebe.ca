@@ -4,9 +4,9 @@ import ImageWrapper from "../imageWrapper"
 const HomeGallery = props => {
   let image = props.project.node.gallery[0]
   return (
-    <React.Fragment>
+    <div class="home-gallery">
         <ImageWrapper image={image}/>
-    </React.Fragment>
+    </div>
   )
 }
 export default HomeGallery
