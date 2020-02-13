@@ -1,10 +1,14 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import ImageWrapper from "../imageWrapper"
 
 const SingleImageGallery = props => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const indexLimit = props.project.gallery.length - 1
   let images = <div> No images </div>
+
+  useEffect(() => {
+    window.document.onkeydown = checkKey;
+  }, [])
 
   const increaseIndex = () => {
     if (currentIndex < indexLimit) {
@@ -21,8 +25,6 @@ const SingleImageGallery = props => {
       setCurrentIndex(currentIndex - 1)
     }
   }
-
-window.document.onkeydown = checkKey;
 
 function checkKey(e) {
     e = e || window.event;
