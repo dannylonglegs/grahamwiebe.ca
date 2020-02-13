@@ -11,6 +11,7 @@ module.exports = {
     title: `Graham Wiebe`,
     author: `Daniel Fernandes`,
     description: `Artist website for Graham Wiebe`,
+    siteURl: "https://grahamwiebe.ca"
   },
   plugins: [
     {
