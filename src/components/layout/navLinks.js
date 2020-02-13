@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 
 const NavLinks = props => {
+  let hidden = props.dropdown ? 'hidden' : ''; 
 
   let links = props.projects.map(project => {
     return (
@@ -12,7 +13,7 @@ const NavLinks = props => {
   })
 
   return (
-    <div class="nav-links">
+    <div class={'nav-links ' + hidden} >
       <ul class="project-links">
         {links}
       </ul>

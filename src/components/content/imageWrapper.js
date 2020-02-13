@@ -3,16 +3,15 @@ import Image from "./image"
 import ImageInfo from "./imageInfo"
 
 const ImageWrapper = props => {
-  let medium = props.image.medium
-  let title = props.image.title
-  let year = props.image.year
-  let size = props.image.size
-  let src = props.image.image.file.url
-
   return (
     <div class="image-wrapper">
-      <Image src={src} />
-      <ImageInfo title={title} medium={medium} year={year} size={size} />
+      <Image src={props.image.image.file.url} />
+      <ImageInfo
+        title={props.image.title ? props.image.title : ""}
+        medium={props.image.medium ? props.image.medium : ""}
+        year={props.image.year ? props.image.year : ""}
+        size={props.image.size ? props.image.size : ""}
+      />
     </div>
   )
 }

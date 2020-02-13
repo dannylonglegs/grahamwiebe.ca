@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Art Template`,
+    title: `Graham Wiebe`,
     author: `Daniel Fernandes`,
-    description: `A template project for artists portfolio websites`,
+    description: `Artist website for Graham Wiebe`,
   },
   plugins: [
     {

@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import ContentView from "../components/content/contentView"
+import SingleImageGallery from "../components/content/gallery/singleImageGallery"
 
 class ProjectTemplate extends React.Component {
   render() {
@@ -16,7 +16,7 @@ class ProjectTemplate extends React.Component {
         <SEO
           title={project.projectTitle}
         />
-        <ContentView class="content-view" project={project}/>
+        <SingleImageGallery project={project}/>
       </Layout>
     )
   }
