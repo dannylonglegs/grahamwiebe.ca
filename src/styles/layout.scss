@@ -99,6 +99,7 @@ div.single-image-gallery {
     max-height: 90%; 
     height: 100%;
     @include small {
+      height: auto;
       margin: auto;
     }
     width: auto;

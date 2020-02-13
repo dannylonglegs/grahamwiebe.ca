@@ -22,7 +22,7 @@ const SingleImageGallery = props => {
     }
   }
 
-document.onkeydown = checkKey;
+window.document.onkeydown = checkKey;
 
 function checkKey(e) {
     e = e || window.event;
