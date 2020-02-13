@@ -7,8 +7,8 @@ const SingleImageGallery = props => {
   let images = <div> No images </div>
 
   useEffect(() => {
-    keyListener();
-  }, [])
+    window.document.onkeydown = checkKey;
+  }, [checkKey])
 
   const increaseIndex = () => {
     if (currentIndex < indexLimit) {
@@ -17,11 +17,7 @@ const SingleImageGallery = props => {
       return null
     }
   }
-
-  const keyListener = () => {
-    window.document.onkeydown = checkKey;
-  }
-
+  
   const decreaseIndex = () => {
     if (currentIndex === 0) {
       return null
