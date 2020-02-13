@@ -2,7 +2,9 @@ import React from "react"
 import { Link } from "gatsby"
 
 const NavLinks = props => {
-  let hidden = props.dropdown ? 'hidden' : ''; 
+  let hidden = props.dropdown ? 'hidden' : '';
+  
+  console.log(props.projects)
 
   let links = props.projects.map(project => {
     return (

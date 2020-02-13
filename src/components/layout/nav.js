@@ -3,7 +3,7 @@ import Header from "./header"
 import NavLinks from "./navLinks"
 
 const Nav = props => {
-  let projects = props.projects;
+  // let projects = props.projects;
   const [dropdown, setDropdown] = useState(true);
 
   const dropdownClick = () => {
@@ -21,7 +21,7 @@ const Nav = props => {
         <button onClick={dropdownClick}class="drop-down-button"> ↓ </button>
       </div>
         
-        <NavLinks dropdown={dropdown} projects={projects}/>
+        <NavLinks dropdown={dropdown} projects={props.projects}/>
     </div>
   )
 }
