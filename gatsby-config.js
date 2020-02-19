@@ -1,9 +1,5 @@
 const dotenv = require('dotenv')
 
-// if( process.env.NODE_ENV !== 'production') {
-//   dotenv.config();
-// }
-
 dotenv.config();
 
 module.exports = {
@@ -58,7 +54,6 @@ module.exports = {
         //trackingId: `ADD YOUR TRACKING ID HERE`,
       },
     },
-    // `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -83,12 +78,8 @@ module.exports = {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: `3a2g077yv85j`,
-        // Learn about environment variables: https://gatsby.dev/env-vars
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 }
