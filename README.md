@@ -1,1 +1,1 @@
-Project Portfolio template primarily for artists.
+Portfolio website for Graham Wiebe
