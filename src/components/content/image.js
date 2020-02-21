@@ -1,6 +1,11 @@
 import React from "react"
+import LazyLoad from "react-lazyload"
 
 const Image = props => {
-  return <img src={props.src} class="image" />
+  return (
+    <LazyLoad>
+      <img src={props.src} class="image" />
+    </LazyLoad>
+  )
 }
 export default Image
