@@ -122,7 +122,7 @@ div.single-image-gallery {
     align-items: center;
   }
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 2fr .75fr;
   grid-template-rows: 90vh;
   .image-and-nav {
     display: flex;
@@ -207,8 +207,8 @@ div.home-gallery {
 
 div.single-image-gallery div.rich-text {
     padding-top: 0 !important;
-    // padding-bottom: 0 !important; 
-    // margin-bottom: 2rem !important;
+    padding-bottom: 0 !important;
+    height: 90%;
     p {
       margin-bottom: .5rem ;
     }
