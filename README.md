@@ -1,1 +1,1 @@
-Portfolio website for Graham Wiebe.
+Portfolio website for Graham Wiebe
