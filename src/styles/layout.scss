@@ -15,7 +15,7 @@ html {
 
 div.layout {
   display: grid;
-  grid-template-columns: 1fr 2.5fr;
+  grid-template-columns: 1fr 3.5fr;
   grid-template-rows: 100vh;
   @include small {
     grid-template-columns: 1fr;
@@ -58,27 +58,46 @@ header {
   }
 }
 
+div.rich-text {
+  font-family: sans-serif;
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+  padding: 2rem 2rem 2rem 0;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    font-family: sans-serif;
+    font-weight: bold;
+  }
+  h3 {
+    font-size: 1.1rem;
+  }
+  p {
+    font-family: sans-serif;
+  }
+}
+
 div.scroll-gallery {
-  // width: 100%;
   height: 100%;
   overflow-x: scroll;
   overflow-y: hidden;
-
-  display: flex; 
+  display: flex;
   flex-direction: row;
 
   div.image-wrapper {
-    // display: grid;
-    // grid-template-columns: 3fr 1fr;
-    // grid-gap: 1rem;
     margin: 2rem 2rem 2rem 0;
-    height: 90%; 
+    height: 90%;
     width: auto;
-    display:flex;
+    display: flex;
     flex-direction: row;
     img {
       margin-bottom: 0;
-      // width: 100%;
       width: auto;
       height: 90vh;
     }
@@ -102,19 +121,23 @@ div.single-image-gallery {
     margin: 1rem;
     align-items: center;
   }
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 90vh;
+  .image-and-nav {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+  }
   div.image-wrapper {
-    max-height: 90%; 
-    height: 100%;
+    max-height: 90%;
+    height: 90%;
     @include small {
       height: auto;
       margin: auto;
     }
     width: auto;
-    display:flex;
-    flex-direction: row;
     @include small {
       padding-bottom: 1.5rem;
     }
@@ -122,11 +145,24 @@ div.single-image-gallery {
       margin-bottom: 0;
       width: auto;
       height: 100%;
+      z-index: 0;
+      position: relative;
     }
+
     .image-info {
-      display: none;
-      margin-left: 2rem;
+      margin-left: 1rem;
+      line-height: 1.2rem;
       min-width: 20%;
+      z-index: 999;
+      border: 1px dotted black;
+      background-color: rgba(255, 255, 255, 0.7);
+      position: absolute;
+      padding: 10px;
+      bottom: 17%;
+      visibility: hidden;
+      &.show {
+        visibility: visible;
+      }
     }
   }
 }
@@ -135,12 +171,8 @@ div.home-gallery {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  // display: flex;
-  // justify-content: center;
   div.image-wrapper {
     display: flex;
-    // justify-content: center;
-
     margin: 2rem 2rem 2rem 0;
     @include small {
       margin: 1rem;
@@ -148,12 +180,11 @@ div.home-gallery {
     }
     img {
       margin-bottom: 0;
-      width: 85%;
+      width: 75%;
       @include small {
         width: 100%;
       }
       height: auto;
-
     }
     .image-info {
       display: none;
@@ -161,39 +192,29 @@ div.home-gallery {
   }
 }
 
-div.rich-text {
-  font-family: sans-serif;
-  height: 100%;
-  width: 100%;
-  overflow-y: scroll;
-  padding: 2rem 2rem 2rem 0;
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin-top: 1rem;
-    margin-bottom: .5rem;
-    font-family: sans-serif;
-    font-weight: bold;
-  }
-  h3 {
-    font-size: 1.1rem;
-  }
-  p {
-    font-family: sans-serif;
-  }
-}
-
 .image-nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  max-width: 25%;
+  width: 25%;
+  margin-top: 1rem;
   @include small {
     width: 50vw;
     max-width: 50vw;
   }
-  max-width: 15%;
+}
 
+div.single-image-gallery div.rich-text {
+    padding-top: 0 !important;
+    // padding-bottom: 0 !important; 
+    // margin-bottom: 2rem !important;
+    p {
+      margin-bottom: .5rem ;
+    }
+}
+
+img.loading {
+  width: auto;
+  height: 100%;
 }

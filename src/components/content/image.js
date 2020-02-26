@@ -1,11 +1,20 @@
-import React from "react"
-import LazyLoad from "react-lazyload"
+import React, { useState } from "react"
+
+// import LazyLoad from "react-lazyload"
 
 const Image = props => {
+  const [loaded, setLoaded] = useState(false)
+
+  const checkLoaded = e => {
+      setLoaded(true);
+  }
+
   return (
-    <LazyLoad>
-      <img src={props.src} class="image" />
-    </LazyLoad>
+      <img
+        src={props.src}
+        onLoad={checkLoaded}
+        class={loaded ? "image" : "image loading"}
+      />
   )
 }
 export default Image
