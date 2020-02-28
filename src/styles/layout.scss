@@ -112,23 +112,26 @@ div.scroll-gallery {
 
 div.single-image-gallery {
   height: 90%;
-  @include small {
-    height: 75vh;
-  }
   width: 100%;
   margin: 2rem 2rem 2rem 0;
-  @include small {
-    margin: 1rem;
-    align-items: center;
-  }
   display: grid;
   grid-template-columns: 2fr .75fr;
   grid-template-rows: 90vh;
+  @include small {
+    // height: 75vh;
+    margin: 1rem;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
   .image-and-nav {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     align-items: center;
+    @include small {
+      height: 80vh;
+    }
   }
   div.image-wrapper {
     max-height: 90%;
@@ -211,6 +214,13 @@ div.single-image-gallery div.rich-text {
     height: 90%;
     p {
       margin-bottom: .5rem ;
+    }
+    @include small {
+      height: 100%;
+      max-height: 300%;
+      margin-top: 3rem;
+      padding-right: 0;
+      overflow: visible;
     }
 }
 
