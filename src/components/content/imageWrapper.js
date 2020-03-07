@@ -25,6 +25,7 @@ const ImageWrapper = props => {
   useEffect(() => {
     return () => {
       checkIndex()
+      checkImageLoad()
     }
   }, [props.currentIndex])
 
