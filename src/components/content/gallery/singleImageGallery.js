@@ -5,7 +5,10 @@ import RichText from "../richText"
 const SingleImageGallery = props => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const indexLimit = props.project.gallery.length - 1
+  const projectText = props.project.projectText ? props.project.projectText.projectText : "";
   let images = <div> No images </div>
+
+  console.log(projectText.length, "looking for project text")
 
   useEffect(() => {
     window.document.onkeydown = checkKey
@@ -38,11 +41,11 @@ const SingleImageGallery = props => {
 
   if (props.project.gallery) {
     images = props.project.gallery.map((image, i) => {
-      return <ImageWrapper image={image} />
+      return <ImageWrapper currentIndex={currentIndex} image={image} />
     })
   }
   return (
-    <div class="single-image-gallery">
+    <div class={"single-image-gallery " + (projectText.length === 0 ? "no-text" : "")}>
       <div class="image-and-nav">
         {images[currentIndex]}
         <div class="image-nav">
@@ -61,7 +64,7 @@ const SingleImageGallery = props => {
           </button>
         </div>
       </div>
-      <RichText content={props.project.projectText.projectText} />
+    {projectText ? <RichText content={projectText} /> : null}
     </div>
   )
 }

@@ -81,6 +81,9 @@ div.rich-text {
   p {
     font-family: sans-serif;
   }
+  @include small {
+    padding: 1rem;
+  }
 }
 
 div.scroll-gallery {
@@ -115,8 +118,11 @@ div.single-image-gallery {
   width: 100%;
   margin: 2rem 2rem 2rem 0;
   display: grid;
-  grid-template-columns: 2fr .75fr;
+  grid-template-columns: 2fr 0.75fr;
   grid-template-rows: 90vh;
+  &.no-text {
+    grid-template-columns: 1fr;
+  }
   @include small {
     // height: 75vh;
     margin: 1rem;
@@ -131,40 +137,63 @@ div.single-image-gallery {
     align-items: center;
     @include small {
       height: 80vh;
+      width: 100%;
     }
   }
   div.image-wrapper {
     max-height: 90%;
     height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: auto;
+    border: none;
     @include small {
       height: auto;
+      max-height: 80%;
       margin: auto;
-    }
-    width: auto;
-    @include small {
       padding-bottom: 1.5rem;
     }
-    img {
-      margin-bottom: 0;
-      width: auto;
-      height: 100%;
-      z-index: 0;
-      position: relative;
-    }
-
-    .image-info {
-      margin-left: 1rem;
-      line-height: 1.2rem;
-      min-width: 20%;
-      z-index: 999;
+    &.loading {
+      width: 50%;
+      @include small {
+        width: 75%;
+        height: 75%;
+      }
       border: 1px dotted black;
-      background-color: rgba(255, 255, 255, 0.7);
-      position: absolute;
-      padding: 10px;
-      bottom: 17%;
-      visibility: hidden;
-      &.show {
-        visibility: visible;
+      img {
+        display: none;
+      }
+      .image-info {
+        display: none;
+      }
+    }
+    &.loaded {
+      img {
+        margin-bottom: 0;
+        width: auto;
+        max-height: 100%;
+        z-index: 0;
+        position: relative;
+      }
+      .image-info {
+        margin-left: 1rem;
+        line-height: 1.2rem;
+        min-width: 20%;
+        max-width: 35%;
+        z-index: 999;
+        border: 1px dotted black;
+        background-color: rgba(255, 255, 255, 0.7);
+        position: absolute;
+        padding: 10px;
+        bottom: 17%;
+        visibility: hidden;
+        &.show {
+          visibility: visible;
+        }
+        @include small {
+          display: none;
+        }
       }
     }
   }
@@ -176,19 +205,26 @@ div.home-gallery {
   overflow: hidden;
   div.image-wrapper {
     display: flex;
+    justify-content: center;
     margin: 2rem 2rem 2rem 0;
+    height: 90vh;
     @include small {
       margin: 1rem;
       justify-content: center;
+      height: 70vh;
     }
     img {
       margin-bottom: 0;
-      width: 75%;
+      height: 100%;
+      width: auto;
       @include small {
-        width: 100%;
+        width: auto;
+        max-height: 100%;
       }
-      height: auto;
     }
+    // img.image.loading {
+    //   display: none;
+    // }
     .image-info {
       display: none;
     }
@@ -209,22 +245,22 @@ div.home-gallery {
 }
 
 div.single-image-gallery div.rich-text {
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-    height: 90%;
-    p {
-      margin-bottom: .5rem ;
-    }
-    @include small {
-      height: 100%;
-      max-height: 300%;
-      margin-top: 3rem;
-      padding-right: 0;
-      overflow: visible;
-    }
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  height: 90%;
+  p {
+    margin-bottom: 0.5rem;
+  }
+  @include small {
+    height: 100%;
+    max-height: 300%;
+    margin-top: 3rem;
+    padding-right: 0;
+    overflow: visible;
+  }
 }
 
-img.loading {
-  width: auto;
-  height: 100%;
-}
+// img.loading {
+//   width: auto;
+//   height: 100%;
+// }

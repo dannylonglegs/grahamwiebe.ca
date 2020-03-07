@@ -1,21 +1,43 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import Image from "./image"
 import ImageInfo from "./imageInfo"
 
 const ImageWrapper = props => {
   const [showInfo, setShowInfo] = useState(false)
+  const [loaded, setLoaded] = useState(false)
 
   const toggleHover = () => {
     setShowInfo(!showInfo)
   }
 
+  const checkImageLoad = () => {
+    // setTimeout(() => {
+    //   setLoaded(true)
+    // }, 15000)
+    setLoaded(true)
+  }
+
+  const checkIndex = () => {
+    setLoaded(false)
+  }
+
+  useEffect(() => {
+    return () => {
+      checkIndex()
+    }
+  }, [props.currentIndex])
+
   return (
     <div
       onMouseEnter={toggleHover}
       onMouseLeave={toggleHover}
-      class="image-wrapper"
+      class={"image-wrapper " + (loaded ? "loaded" : "loading")}
     >
-      <Image src={props.image.image.file.url} />
+      <Image
+        currentIndex={props.currentIndex}
+        checkImageLoad={checkImageLoad}
+        src={props.image.image.file.url}
+      />
       <ImageInfo
         showInfo={showInfo}
         title={props.image.title ? props.image.title : ""}

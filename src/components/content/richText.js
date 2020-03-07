@@ -4,7 +4,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 const RichText = props => {
   const richText = JSON.parse(props.content)
   const html = documentToReactComponents(richText)
-  return <div class="rich-text">{html}</div>
+  return <div class="rich-text">{html ? html : ""}</div>
 }
 
 export default RichText
