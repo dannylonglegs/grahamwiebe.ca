@@ -8,8 +8,6 @@ const SingleImageGallery = props => {
   const projectText = props.project.projectText ? props.project.projectText.projectText : "";
   let images = <div> No images </div>
 
-  console.log(projectText.length, "looking for project text")
-
   useEffect(() => {
     window.document.onkeydown = checkKey
   }, [checkKey])

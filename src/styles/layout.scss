@@ -173,6 +173,9 @@ div.single-image-gallery {
         margin-bottom: 0;
         width: auto;
         max-height: 100%;
+        @include small {
+          height: 60vh;
+        }
         z-index: 0;
         position: relative;
       }

@@ -15,7 +15,6 @@ const ImageWrapper = props => {
     //   setLoaded(true)
     // }, 15000)
     setLoaded(true)
-    console.log("image loaded")
   }
 
   const checkIndex = () => {
