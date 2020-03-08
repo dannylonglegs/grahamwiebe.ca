@@ -81,7 +81,7 @@ const SingleImageGallery = props => {
           <Slider>{slides}</Slider>
           <div class="image-nav">
             <ButtonBack onClick={decreaseIndex}>{"<"}</ButtonBack>
-            <div class="counter">{currentIndex + 1 + "/" + (indexLimit + 1)}</div>
+            {/* <div class="counter">{currentIndex + 1 + "/" + (indexLimit + 1)}</div> */}
             <ButtonNext onClick={increaseIndex}>{">"}</ButtonNext>
           </div>
         </CarouselProvider>
