@@ -6,6 +6,7 @@ import {
   Image,
   ButtonBack,
   ButtonNext,
+  WithStore
 } from "pure-react-carousel"
 import "pure-react-carousel/dist/react-carousel.es.css"
 import ImageWrapper from "../imageWrapper"
@@ -20,9 +21,9 @@ const SingleImageGallery = props => {
   // let images = <div> No images </div>;
   let slides = <div> No images </div>
 
-  useEffect(() => {
-    window.document.onkeydown = checkKey
-  }, [checkKey])
+  // useEffect(() => {
+  //   window.document.onkeydown = checkKey
+  // }, [checkKey])
 
   const increaseIndex = () => {
     if (currentIndex < indexLimit) {
@@ -40,14 +41,14 @@ const SingleImageGallery = props => {
     }
   }
 
-  function checkKey(e) {
-    e = e || window.event
-    if (e.keyCode == "37") {
-      decreaseIndex()
-    } else if (e.keyCode == "39") {
-      increaseIndex()
-    }
-  }
+  // function checkKey(e) {
+  //   e = e || window.event
+  //   if (e.keyCode == "37") {
+  //     decreaseIndex()
+  //   } else if (e.keyCode == "39") {
+  //     increaseIndex()
+  //   }
+  // }
 
   // if (props.project.gallery) {
   //   images = props.project.gallery.map((image, i) => {
@@ -79,8 +80,9 @@ const SingleImageGallery = props => {
         >
           <Slider>{slides}</Slider>
           <div class="image-nav">
-            <ButtonBack>{"<"}</ButtonBack>
-            <ButtonNext>{">"}</ButtonNext>
+            <ButtonBack onClick={decreaseIndex}>{"<"}</ButtonBack>
+            <div class="counter">{currentIndex + 1 + "/" + (indexLimit + 1)}</div>
+            <ButtonNext onClick={increaseIndex}>{">"}</ButtonNext>
           </div>
         </CarouselProvider>
         {/* {images[currentIndex]} */}
@@ -104,4 +106,4 @@ const SingleImageGallery = props => {
     </div>
   )
 }
-export default SingleImageGallery
+export default SingleImageGallery;

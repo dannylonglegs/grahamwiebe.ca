@@ -15,7 +15,7 @@ html {
 
 div.layout {
   display: grid;
-  grid-template-columns: 1fr 3.5fr;
+  grid-template-columns: 1fr 3fr;
   grid-template-rows: 100vh;
   @include small {
     grid-template-columns: 1fr;
@@ -29,6 +29,10 @@ main {
   // align-items: center;
   height: 100%;
   width: 100%;
+  @include small {
+    height: auto;
+    width: 100vw;
+  }
 }
 
 p {
@@ -136,7 +140,7 @@ div.single-image-gallery {
     flex-direction: column;
     align-items: center;
     @include small {
-      height: 80vh;
+      height: 85vh;
       width: 100%;
     }
   }
@@ -150,8 +154,8 @@ div.single-image-gallery {
     // width: auto;
     border: none;
     @include small {
-      height: 75vh;
-      max-height: 75vh;
+      height: auto;
+      max-height: auto;
       margin: auto;
       padding-bottom: 1.5rem;
     }
@@ -172,11 +176,10 @@ div.single-image-gallery {
     &.loaded {
       img {
         margin-bottom: 0;
-        // width: 80%;
         max-height: 90%;
         margin: auto;
         @include small {
-          height: 60vh;
+          max-height: 55vh;
         }
         z-index: 0;
         position: relative;
@@ -249,15 +252,18 @@ div.home-gallery {
   padding: 0 7rem;
   // margin-top: 1rem;
   @include small {
-    width: 50vw;
-    max-width: 50vw;
+    // width: 50vw;
+    max-width: 60vw;
+    margin-top: 1rem;
+    padding: 0;
+    margin: auto;
   }
 }
 
 div.single-image-gallery div.rich-text {
   // padding-top: 0 !important;
   // padding-bottom: 0 !important;
-  height: 90%;
+  // height: 90%;
   border: 1px dotted black;
   margin: auto;
   height: 80%;
@@ -267,12 +273,11 @@ div.single-image-gallery div.rich-text {
     margin-bottom: 0.5rem;
   }
   @include small {
-    // height: 100%;
-    // max-height: 300%;
-    // margin-top: 3rem;
-    // padding-right: 0;
-    // overflow: visible;
-    display: none;
+    border: none;
+    overflow-y: visible;
+    // height: 165vh;
+    // margin-top: 6rem;
+    width: 100%;
   }
 }
 
@@ -284,4 +289,7 @@ div.single-image-gallery div.rich-text {
 div.carousel {
   height: 400px;
   width: 550px;
+  @include small {
+    width: 100vw;
+  }
 }
