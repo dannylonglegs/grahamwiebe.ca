@@ -1,12 +1,24 @@
 import React, { useState, useEffect } from "react"
+import {
+  CarouselProvider,
+  Slider,
+  Slide,
+  Image,
+  ButtonBack,
+  ButtonNext,
+} from "pure-react-carousel"
+import "pure-react-carousel/dist/react-carousel.es.css"
 import ImageWrapper from "../imageWrapper"
 import RichText from "../richText"
 
 const SingleImageGallery = props => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const indexLimit = props.project.gallery.length - 1
-  const projectText = props.project.projectText ? props.project.projectText.projectText : "";
-  let images = <div> No images </div>
+  const projectText = props.project.projectText
+    ? props.project.projectText.projectText
+    : ""
+  // let images = <div> No images </div>;
+  let slides = <div> No images </div>
 
   useEffect(() => {
     window.document.onkeydown = checkKey
@@ -37,16 +49,42 @@ const SingleImageGallery = props => {
     }
   }
 
+  // if (props.project.gallery) {
+  //   images = props.project.gallery.map((image, i) => {
+  //     return <ImageWrapper currentIndex={currentIndex} image={image} />
+  //   })
+  // }
+
   if (props.project.gallery) {
-    images = props.project.gallery.map((image, i) => {
-      return <ImageWrapper currentIndex={currentIndex} image={image} />
+    slides = props.project.gallery.map((image, i) => {
+      return (
+        <Slide index={i}>
+          <ImageWrapper currentIndex={currentIndex} image={image} />
+        </Slide>
+      )
     })
   }
+
   return (
-    <div class={"single-image-gallery " + (projectText.length === 0 ? "no-text" : "")}>
+    <div
+      class={
+        "single-image-gallery " + (projectText.length === 0 ? "no-text" : "")
+      }
+    >
       <div class="image-and-nav">
-        {images[currentIndex]}
-        <div class="image-nav">
+        <CarouselProvider
+          naturalSlideWidth={100}
+          naturalSlideHeight={125}
+          totalSlides={indexLimit + 1}
+        >
+          <Slider>{slides}</Slider>
+          <div class="image-nav">
+            <ButtonBack>{"<"}</ButtonBack>
+            <ButtonNext>{">"}</ButtonNext>
+          </div>
+        </CarouselProvider>
+        {/* {images[currentIndex]} */}
+        {/* <div class="image-nav">
           <button
             onClick={decreaseIndex}
             disabled={currentIndex === 0 ? true : false}
@@ -60,9 +98,9 @@ const SingleImageGallery = props => {
           >
             {">"}
           </button>
-        </div>
+        </div> */}
       </div>
-    {projectText ? <RichText content={projectText} /> : null}
+      {projectText ? <RichText content={projectText} /> : null}
     </div>
   )
 }

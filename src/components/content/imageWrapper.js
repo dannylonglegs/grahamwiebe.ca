@@ -32,6 +32,7 @@ const ImageWrapper = props => {
     <div
       onMouseEnter={toggleHover}
       onMouseLeave={toggleHover}
+      // class={"image-wrapper"}
       class={"image-wrapper " + (loaded ? "loaded" : "loading")}
     >
       <Image
