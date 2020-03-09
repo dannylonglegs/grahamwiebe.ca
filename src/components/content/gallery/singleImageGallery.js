@@ -50,12 +50,6 @@ const SingleImageGallery = props => {
   //   }
   // }
 
-  // if (props.project.gallery) {
-  //   images = props.project.gallery.map((image, i) => {
-  //     return <ImageWrapper currentIndex={currentIndex} image={image} />
-  //   })
-  // }
-
   if (props.project.gallery) {
     slides = props.project.gallery.map((image, i) => {
       return (

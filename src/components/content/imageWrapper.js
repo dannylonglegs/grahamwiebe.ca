@@ -10,12 +10,12 @@ const ImageWrapper = props => {
     setShowInfo(!showInfo)
   }
 
-  const checkImageLoad = () => {
-    // setTimeout(() => {
-    //   setLoaded(true)
-    // }, 15000)
-    setLoaded(true)
-  }
+  // const checkImageLoad = () => {
+  //   // setTimeout(() => {
+  //   //   setLoaded(true)
+  //   // }, 15000)
+  //   setLoaded(true)
+  // }
 
   const checkIndex = () => {
     setLoaded(false)
@@ -24,7 +24,7 @@ const ImageWrapper = props => {
   useEffect(() => {
     return () => {
       checkIndex()
-      checkImageLoad()
+      // checkImageLoad()
     }
   }, [props.currentIndex])
 
@@ -32,12 +32,11 @@ const ImageWrapper = props => {
     <div
       onMouseEnter={toggleHover}
       onMouseLeave={toggleHover}
-      // class={"image-wrapper"}
-      class={"image-wrapper " + (loaded ? "loaded" : "loading")}
+      class={"image-wrapper loaded"}
     >
       <Image
         currentIndex={props.currentIndex}
-        checkImageLoad={checkImageLoad}
+        // checkImageLoad={checkImageLoad}
         src={props.image.image.file.url}
       />
       <ImageInfo
