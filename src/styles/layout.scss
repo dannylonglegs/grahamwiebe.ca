@@ -127,6 +127,10 @@ div.single-image-gallery {
   // &.no-text {
   //   grid-template-columns: 1fr;
   // }
+  @include medium {
+    grid-template-columns: 1fr;
+    grid-template-rows: 100vh;
+  }
   @include small {
     // height: 75vh;
     margin: 1rem;
@@ -271,6 +275,14 @@ div.single-image-gallery div.rich-text {
   padding: 1rem;
   p {
     margin-bottom: 0.5rem;
+  }
+  @include medium {
+    height: 100vh;
+    width: 90%;
+    max-height: 300vh;
+    margin: 2rem;
+    padding: 1rem;
+    overflow: visible;
   }
   @include small {
     border: none;
