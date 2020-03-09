@@ -105,6 +105,11 @@ li:hover {
   }
 }
 
+div.carousel li:hover {
+  border: none;
+  box-shadow: none;
+}
+
 .content .cv {
   max-height: 100vh;
   display: flex;
