@@ -7,7 +7,7 @@ const NavLinks = props => {
   let links = props.projects.map(project => {
     return (
       <li>
-        <Link to={project.node.slug}>{project.node.projectTitle}</Link>
+        <Link to={"/" + project.node.slug}>{project.node.projectTitle}</Link>
       </li>
     )
   })

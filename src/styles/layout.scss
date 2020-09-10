@@ -15,23 +15,85 @@ html {
 
 div.layout {
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 3.5fr;
   grid-template-rows: 100vh;
+  width: 95vw;
   @include small {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
+    width: 100vw;
   }
 }
 
 main {
-  display: flex;
-  justify-content: center;
-  // align-items: center;
-  height: 100%;
-  width: 100%;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 33vh;
+  @include ipad-portrait {
+    grid-template-columns: 1fr 1fr;
+    // grid-template-rows: minmax(50vh, 50vh);
+  }
   @include small {
     height: auto;
-    width: 90vw;
+    width: 100vw;
+    grid-template-columns: 1fr;
+  }
+}
+
+.image-display {
+  // border: 1px solid black;
+  padding: 2rem;
+  grid-row: 1 / span 3;
+
+  @include ipad-portrait {
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 2;
+    height: 55vh;
+  }
+  @include small {
+    grid-column: 1 / 1;
+    grid-row: 1 / span 2;
+    padding: 0 1rem;
+    height: 60vh;
+  }
+  @include x-small {
+    height: 55vh;
+  }
+}
+
+.imagenav-and-info {
+  // border: 1px solid black;
+  grid-column: 2 / 2;
+  padding: 2rem 0;
+  @include ipad-portrait {
+    grid-column: 1 / span 2;
+    grid-row: 3 / 3;
+    padding: 0 3rem;
+    height: 20vh;
+  }
+  @include small {
+    grid-column: 1 / 1;
+    grid-row: 3 / 3;
+    height: 30vh;
+    padding: 1rem;
+  }
+  @include x-small {
+    height: 30vh;
+  }
+}
+
+.project-description {
+  // border: 1px solid black;
+  grid-column: 2 / 2;
+  grid-row: 2 / span 2;
+  overflow: scroll;
+  @include ipad-portrait {
+    grid-column: 1 / span 2;
+    grid-row: 4 / 4;
+  }
+  @include small {
+    grid-column: 1 / 1;
+    grid-row: 4 / 4;
   }
 }
 
@@ -42,6 +104,9 @@ p {
 header {
   margin-bottom: 2rem;
   font-size: 1.5rem;
+  @include small {
+    margin-bottom: 0;
+  }
 }
 
 #nav {
@@ -62,12 +127,23 @@ header {
   }
 }
 
+.project-description {
+  border: 1px dotted black;
+  margin-bottom: 2rem;
+  @include small {
+    border: none;
+  }
+}
+
 div.rich-text {
   font-family: sans-serif;
-  height: 100%;
-  width: 100%;
+  // height: 100%;
+  // width: 100%;
   overflow-y: scroll;
-  padding: 2rem 2rem 2rem 0;
+  padding: 0;
+  margin: 8px 8px 0 8px;
+  line-height: 1.2rem;
+
   h1,
   h2,
   h3,
@@ -84,37 +160,10 @@ div.rich-text {
   }
   p {
     font-family: sans-serif;
+    margin-bottom: 8px;
   }
   @include small {
     padding: 1rem;
-  }
-}
-
-div.scroll-gallery {
-  height: 100%;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  display: flex;
-  flex-direction: row;
-
-  div.image-wrapper {
-    margin: 2rem 2rem 2rem 0;
-    height: 90%;
-    width: auto;
-    display: flex;
-    flex-direction: row;
-    img {
-      margin-bottom: 0;
-      width: auto;
-      height: 90vh;
-      padding: 3px;
-    }
-    .image-info {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      min-width: 20vw;
-    }
   }
 }
 
@@ -157,6 +206,7 @@ div.single-image-gallery {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    overflow: hidden;
     // width: auto;
     border: none;
     @include small {
@@ -214,7 +264,7 @@ div.single-image-gallery {
           padding: 0;
           top: 0;
           border: none;
-          font-size: .8rem;
+          font-size: 0.8rem;
           text-align: center;
         }
         &.show {
@@ -227,14 +277,15 @@ div.single-image-gallery {
 }
 
 div.home-gallery {
-  width: 100%;
-  height: 100%;
   overflow: hidden;
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 3;
   div.image-wrapper {
     // display: flex;
     // // flex-direction: column;
     // justify-content: center;
     margin: 2rem 2rem 2rem 2rem;
+
     // height: 90vh;
     width: auto;
     height: 90%;
@@ -265,11 +316,11 @@ div.home-gallery {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 50%;
+  // width: 50%;
   @include small {
     // width: 50vw;
     // max-width: 60vw;
-    width: 90%;
+    // width: 90%;
     margin-top: 1rem;
     padding: 0;
     margin: auto;
@@ -305,10 +356,11 @@ div.single-image-gallery div.rich-text {
   }
 }
 
-// img.loading {
-//   width: auto;
-//   height: 100%;
-// }
+div.cv {
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 3;
+  overflow-y: scroll;
+}
 
 div.carousel {
   height: 400px;
@@ -318,20 +370,75 @@ div.carousel {
     width: 89vw;
     margin: auto;
   }
-li {
-  @include small {
-    height: 70vh;
+  li {
+    @include small {
+      height: 70vh;
+    }
   }
 }
+
+h3.image-title {
+  margin-top: 24px;
+  margin-bottom: 0;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  @include small {
+    font-size: .9rem;
+    margin-top: 16px;
+    line-height: 1rem;
+  }
+}
+
+.image-info {
+  @include small {
+
+  }
 }
 
 .title {
   font-style: italic;
   font-weight: bold;
+}
 
+p.medium {
+  line-height: 1.2rem;
+  width: 75%;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  @include small {
+    width: 100%;
+    font-size: 0.8rem;
+    line-height: 1rem;
+    margin-bottom: 4px;
+  }
+}
+
+p.size {
+  line-height: 1.2rem;
+  width: 75%;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  @include small {
+    font-size: 0.8rem;
+    line-height: 1rem;
+    margin-bottom: 4px;
+  }
 }
 
 .year {
   font-style: normal;
   font-weight: normal;
+  font-size: 1rem;
+  margin-bottom: 8px;
+  @include small {
+    font-size: 0.8rem;
+    line-height: 1rem;
+    margin-bottom: 4px;
+  }
+}
+
+.gatsby-image-wrapper {
+  width: 100%;
+  height: 100%;
 }

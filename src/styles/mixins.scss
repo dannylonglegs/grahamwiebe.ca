@@ -3,8 +3,18 @@
     @content;
   }
 }
+@mixin x-small {
+  @media (max-width: 359px) {
+    @content;
+  }
+}
 @mixin medium {
   @media (max-width: 950px) {
+    @content;
+  }
+}
+@mixin ipad-portrait {
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
     @content;
   }
 }

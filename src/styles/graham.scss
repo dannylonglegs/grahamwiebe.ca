@@ -37,19 +37,18 @@ button.drop-down-button {
   height: 100%;
   font-size: 1.1em;
   font-weight: 700;
-
-  // visibility
   visibility: hidden;
   @include small {
     visibility: visible;
+    margin-bottom: 0;
   }
 }
 
 div.image-nav button {
   width: 30px;
   @include small {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
   }
   border: black 1px dotted;
   background-color: transparent;
@@ -166,6 +165,7 @@ p.text {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 4em;
   @include small {
     margin-bottom: 0;
@@ -199,8 +199,4 @@ pre {
   @include small {
     display: none;
   }
-}
-
-div.rich-text {
-  line-height: 1.2rem;
 }

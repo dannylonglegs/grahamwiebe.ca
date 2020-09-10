@@ -6,7 +6,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import RichText from "../components/content/richText"
 import { rhythm } from "../utils/typography"
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 class BlogIndex extends React.Component {
   render() {
@@ -16,9 +16,15 @@ class BlogIndex extends React.Component {
     const cvData = data.allContentfulCvCvRichTextNode.nodes[0].cv
 
     return (
-      <Layout location={this.props.location} title={siteTitle} projects={projects}>
+      <Layout
+        location={this.props.location}
+        title={siteTitle}
+        projects={projects}
+      >
         <SEO title="All posts" />
-        <RichText content={cvData}/>
+        <div class="cv">
+          <RichText content={cvData} />
+        </div>
       </Layout>
     )
   }
@@ -34,17 +40,17 @@ export const pageQuery = graphql`
       }
     }
     allContentfulProject {
-      edges{
-        node{
+      edges {
+        node {
           projectTitle
           slug
         }
       }
     }
-      allContentfulCvCvRichTextNode {
-        nodes {
-          cv
-        }
+    allContentfulCvCvRichTextNode {
+      nodes {
+        cv
       }
+    }
   }
 `

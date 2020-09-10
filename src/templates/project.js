@@ -4,19 +4,30 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import SingleImageGallery from "../components/content/gallery/singleImageGallery"
+import NewGallery from "../components/content/gallery/gallery"
+import RichText from "../components/content/richText"
 
 class ProjectTemplate extends React.Component {
   render() {
     const project = this.props.data.contentfulProject
     const siteTitle = this.props.data.site.siteMetadata.title
     const projects = this.props.data.allContentfulProject.edges
-
+    console.log(project, "project here")
     return (
-      <Layout location={this.props.location} title={siteTitle} projects={projects} >
-        <SEO
-          title={project.projectTitle}
-        />
-        <SingleImageGallery project={project}/>
+      <Layout
+        location={this.props.location}
+        title={siteTitle}
+        projects={projects}
+      >
+        <SEO title={project.projectTitle} />
+        {/* <SingleImageGallery project={project}/> */}
+        <NewGallery project={project} />
+
+        {project.projectText ? (
+          <div class="project-description">
+            <RichText content={project.projectText.projectText} />
+          </div>
+        ) : null}
       </Layout>
     )
   }
@@ -32,8 +43,8 @@ export const pageQuery = graphql`
       }
     }
     allContentfulProject {
-      edges{
-        node{
+      edges {
+        node {
           projectTitle
           slug
         }
@@ -46,8 +57,9 @@ export const pageQuery = graphql`
         year
         size
         image {
-          file {
-            url
+          fluid {
+            srcSet
+            sizes
           }
         }
       }
