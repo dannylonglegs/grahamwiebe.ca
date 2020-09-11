@@ -3,7 +3,6 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import SingleImageGallery from "../components/content/gallery/singleImageGallery"
 import NewGallery from "../components/content/gallery/gallery"
 import RichText from "../components/content/richText"
 

@@ -1,9 +1,6 @@
 import React from "react"
-import { Link } from "gatsby"
 import Nav from "./layout/nav"
-import Footer from "./layout/footer"
 
-import { rhythm, scale } from "../utils/typography"
 import "../styles/main.scss"
 
 class Layout extends React.Component {
@@ -15,7 +12,6 @@ class Layout extends React.Component {
       <div class="layout">
         <Nav title={title} projects={projects} />
         <main>{children}</main>
-        {/* <Footer /> */}
       </div>
     )
   }

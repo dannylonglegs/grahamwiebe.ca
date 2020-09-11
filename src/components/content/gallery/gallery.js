@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react"
-import ImageWrapper from "../imageWrapper"
 import Img from "gatsby-image"
 
 const NewGallery = props => {
