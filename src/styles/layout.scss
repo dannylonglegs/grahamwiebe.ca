@@ -111,12 +111,52 @@ header {
     margin: 1rem;
   }
   .nav-links {
+    height: 30vh;
     ul {
+      position: absolute;
       list-style-type: none;
+      width: 18vw;
       li {
         margin-bottom: 0;
+        display: inline-block;
+        width: 100%;
+
+        a { 
+          display: inline-block;
+          width: 100%;
+        }
       }
     }
+  }
+
+  @include small {
+    .nav-links {
+      z-index: 1;
+      position: fixed;
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      width: 93%;
+      background-color: white;
+      box-shadow: 2px 2px 0;
+      margin-top: 3vh;
+      &.hidden {
+        display: none;
+      }
+      .project-links,
+      .other-links {
+        position: static;
+        width: initial;
+        margin: 0;
+        li {
+          border: 1px dotted #000;
+          padding: 0 5px;
+        }
+      }
+    }
+  }
+  .other-links {
+    margin-top: 30vh;
   }
   @include small {
     max-height: 10vh;
@@ -172,7 +212,8 @@ div.home-gallery {
     @include small {
       margin: 1rem;
       justify-content: center;
-      height: 70vh;
+      height: auto;
+      width: 92%;
     }
     img {
       margin-bottom: 0;
@@ -292,6 +333,7 @@ a {
 
 header.header-title {
   font-size: 1.1em;
+  position: absolute;
   a {
     border: black 1px dotted;
     box-shadow: 2px 2px 0px;
@@ -323,6 +365,7 @@ button.drop-down-button {
   visibility: hidden;
   @include small {
     visibility: visible;
+    margin-left: auto;
     margin-bottom: 0;
   }
 }
@@ -430,25 +473,7 @@ pre {
   margin: 4rem 1rem;
 }
 
-@include small {
-  .nav-links {
-    z-index: 1;
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    width: 93%;
-    background-color: white;
-    box-shadow: 2px 2px 0;
-    .project-links,
-    .other-links {
-      margin: 0;
-      li {
-        border: 1px dotted #000;
-        padding: 0 5px;
-      }
-    }
-  }
-}
+
 
 .hidden {
   @include small {
